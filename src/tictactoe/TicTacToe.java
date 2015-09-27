@@ -28,10 +28,10 @@ public class TicTacToe {
     public static int turn = 0;
     
     static class Panel extends JPanel{
-        Color color = new Color(255, 255, 255);
+        Color color = Color.white;
         Panel(){
             this.addMouseListener(new MousePlay.panel());
-            this.setBackground(Color.white);
+            this.setBackground(color);
             mainFrame.add(this);
             this.setBorder(BorderFactory.createLineBorder(Color.black));
         }

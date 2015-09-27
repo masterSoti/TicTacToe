@@ -71,7 +71,7 @@ public class MousePlay {
             */
             int z = 0;
             for(int i = 0; i < 9; i++){
-                JPanel s = (JPanel) TicTacToe.mainFrame.getContentPane().getComponent(2);
+                JPanel s = (JPanel) TicTacToe.mainFrame.getContentPane().getComponent(i);
                 if(s.getBackground() != Color.white){
                     z++;
                 }
