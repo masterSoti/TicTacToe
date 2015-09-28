@@ -32,7 +32,7 @@ public class MousePlay {
                     panel.color = panel.getBackground();
                 }
             }
-            System.out.println(func.check());
+            System.out.println(func.check()[0]);
         }
 
         @Override
@@ -69,7 +69,7 @@ public class MousePlay {
             /*
                 Check which grids are green and which are red. Return and Danger grids
             */
-            boolean[] z = {};
+            boolean[] z = new boolean[9];
             for(int i = 0; i < 9; i++){
                 JPanel s = (JPanel) TicTacToe.mainFrame.getContentPane().getComponent(i);
                 if(s.getBackground() != Color.white){
@@ -79,6 +79,12 @@ public class MousePlay {
                 }
             }
             return z;
+        }
+        private static boolean win(boolean[] arr){
+            for(int i = 0; i < arr.length; i++){
+                
+            }
+            return true;
         }
     }
 }
