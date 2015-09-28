@@ -65,23 +65,26 @@ public class MousePlay {
         
     }
     private static class func{
-        private static boolean[] check(){
+        private static int[] check(){
             /*
                 Check which grids are green and which are red. Return and Danger grids
             */
-            boolean[] z = new boolean[9];
+            int[] z = new int[9];
             for(int i = 0; i < 9; i++){
                 JPanel s = (JPanel) TicTacToe.mainFrame.getContentPane().getComponent(i);
-                if(s.getBackground() != Color.white){
-                    z[i] = true;
+                if(s.getBackground() == Color.red){
+                    z[i] = 1;
+                }else if(s.getBackground() == Color.green){
+                    z[i] = 2;
                 }else{
-                    z[i] = false;
+                    z[i] = 0;
                 }
             }
             return z;
         }
-        private static boolean win(boolean[] arr){
+        private static boolean win(int[] arr){
             for(int i = 0; i < arr.length; i++){
+                System.out.println(arr[i]);
             }
             return true;
         }
