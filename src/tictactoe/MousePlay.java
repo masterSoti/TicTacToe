@@ -32,7 +32,7 @@ public class MousePlay {
                     panel.color = panel.getBackground();
                 }
             }
-            System.out.println(func.check()[0]);
+            func.win(func.check());
         }
 
         @Override
@@ -82,7 +82,6 @@ public class MousePlay {
         }
         private static boolean win(boolean[] arr){
             for(int i = 0; i < arr.length; i++){
-                
             }
             return true;
         }
