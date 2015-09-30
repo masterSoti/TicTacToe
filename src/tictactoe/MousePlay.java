@@ -65,27 +65,38 @@ public class MousePlay {
         
     }
     private static class func{
-        private static int[] check(){
+        private static int[][] check(){
             /*
                 Check which grids are green and which are red. Return and Danger grids
             */
-            int[] z = new int[9];
-            for(int i = 0; i < 9; i++){
-                JPanel s = (JPanel) TicTacToe.mainFrame.getContentPane().getComponent(i);
-                if(s.getBackground() == Color.red){
-                    z[i] = 1;
-                }else if(s.getBackground() == Color.green){
-                    z[i] = 2;
-                }else{
-                    z[i] = 0;
+            int counter = 0;
+            int[][] z = new int[3][3];
+            for(int i = 0; i < 3; i++){
+                for(int x = 0; x < 3; x++){
+                    JPanel s = (JPanel) TicTacToe.mainFrame.getContentPane().getComponent(counter);
+                    if(s.getBackground() == Color.red){
+                        z[i][x] = 1;
+                    }else if(s.getBackground() == Color.green){
+                        z[i][x] = 2;
+                    }else{
+                        z[i][x] = 0;
+                    }
+                    counter++;
                 }
+
             }
             return z;
         }
-        private static boolean win(int[] arr){
-            for(int i = 0; i < arr.length; i++){
-                System.out.println(arr[i]);
+        private static boolean win(int[][] arr){
+            for(int i = 0; i < 3; i++){
+                for(int x = 0; x < 3; x++){
+                    int x_cord = i + 1;
+                    int y_cord = x + 1;
+                    System.out.print("(" + x_cord + ", " + y_cord + "): " +arr[i][x] + "\t");
+                }
+                System.out.println();
             }
+            System.out.println("==========================================");
             return true;
         }
     }
