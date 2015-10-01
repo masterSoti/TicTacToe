@@ -6,13 +6,10 @@
 package tictactoe;
 
 import java.awt.Color;
-import java.lang.String;
-import java.awt.Component;
 import java.awt.GridLayout;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 
 /**
  *
