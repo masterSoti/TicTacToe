@@ -87,17 +87,38 @@ public class MousePlay {
             }
             return z;
         }
-        private static boolean win(int[][] arr){
+        private static int win(int[][] arr){
             for(int i = 0; i < 3; i++){
+                int p1_counter_vertical = 0;
+                int p2_counter_vertical = 0;
+                int p1_counter_horizontal = 0;
+                int p2_counter_horizontal = 0;
                 for(int x = 0; x < 3; x++){
                     int x_cord = i + 1;
                     int y_cord = x + 1;
                     System.out.print("(" + x_cord + ", " + y_cord + "): " +arr[i][x] + "\t");
+                    if(arr[i][x] == 1){
+                        p1_counter_horizontal++;
+                    }else if(arr[i][x] == 2){
+                        p2_counter_horizontal++;
+                    }
+                    if(arr[x][i] == 1){
+                        p1_counter_vertical++;
+                    }else if(arr[x][i] == 2){
+                        p2_counter_vertical++;
+                    }
                 }
                 System.out.println();
+                if(p1_counter_horizontal == 3 || p1_counter_vertical == 3){
+                    System.out.println("RED WINS");
+                    return 1;
+                }else if(p2_counter_horizontal == 3 || p2_counter_vertical == 3){
+                    System.out.println("GREEN WINS");
+                    return 2;
+                }
             }
             System.out.println("==========================================");
-            return true;
+            return 0;
         }
     }
 }
