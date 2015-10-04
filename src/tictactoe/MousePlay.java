@@ -38,6 +38,7 @@ public class MousePlay {
             if(winner > 0){
                 func.GameOver(winner);
             }
+            TicTacToe.mainFrame.validate();
         }
 
         @Override
@@ -140,17 +141,14 @@ public class MousePlay {
             JPanel p = TicTacToe.whoWon;
             JTextField t = new JTextField();
             if(winner == 1){
-                t.setFont(new Font("Engravers MT", Font.BOLD, 23));
                 t.setText("Player One Won!!!!!");
-                p.add(t);
-                TicTacToe.mainFrame.add(p);
             }else if(winner == 2){
-                t.setFont(new Font("Engravers MT", Font.BOLD, 23));
                 t.setText("Player Two Won!!!!!");
-                p.add(t);
-                TicTacToe.mainFrame.add(p);
             }
+            t.setFont(new Font("Engravers MT", Font.BOLD, 23));
             t.setEditable(false);
+            p.add(t);
+            TicTacToe.mainFrame.add(p);
         }
     }
 }
