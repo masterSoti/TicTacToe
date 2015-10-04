@@ -6,9 +6,11 @@
 package tictactoe;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 /**
  *
@@ -32,7 +34,10 @@ public class MousePlay {
                     panel.color = panel.getBackground();
                 }
             }
-            func.win(func.check());
+            int winner = func.win(func.check());
+            if(winner > 0){
+                func.GameOver(winner);
+            }
         }
 
         @Override
@@ -88,6 +93,8 @@ public class MousePlay {
             return z;
         }
         private static int win(int[][] arr){
+            int p1_left_diag = 0;
+            int p2_left_diag = 0;
             for(int i = 0; i < 3; i++){
                 int p1_counter_vertical = 0;
                 int p2_counter_vertical = 0;
@@ -107,18 +114,43 @@ public class MousePlay {
                     }else if(arr[x][i] == 2){
                         p2_counter_vertical++;
                     }
+                    if(x == i){
+                        if(arr[x][i] == 1){
+                            p1_left_diag++;
+                        }else if(arr[x][i] == 2){
+                            p2_left_diag++;
+                        }
+                    }
                 }
                 System.out.println();
-                if(p1_counter_horizontal == 3 || p1_counter_vertical == 3){
+                if(p1_counter_horizontal == 3 || p1_counter_vertical == 3 || p1_left_diag == 3){
                     System.out.println("RED WINS");
                     return 1;
-                }else if(p2_counter_horizontal == 3 || p2_counter_vertical == 3){
+                }else if(p2_counter_horizontal == 3 || p2_counter_vertical == 3 || p2_left_diag == 3){
                     System.out.println("GREEN WINS");
                     return 2;
                 }
             }
             System.out.println("==========================================");
             return 0;
+        }
+        private static void GameOver(int winner){
+            TicTacToe.mainFrame.getContentPane().removeAll();
+            TicTacToe.mainFrame.getContentPane().repaint();
+            JPanel p = TicTacToe.whoWon;
+            JTextField t = new JTextField();
+            if(winner == 1){
+                t.setFont(new Font("Engravers MT", Font.BOLD, 23));
+                t.setText("Player One Won!!!!!");
+                p.add(t);
+                TicTacToe.mainFrame.add(p);
+            }else if(winner == 2){
+                t.setFont(new Font("Engravers MT", Font.BOLD, 23));
+                t.setText("Player Two Won!!!!!");
+                p.add(t);
+                TicTacToe.mainFrame.add(p);
+            }
+            t.setEditable(false);
         }
     }
 }
