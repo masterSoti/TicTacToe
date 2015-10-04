@@ -131,6 +131,10 @@ public class MousePlay {
                     System.out.println("GREEN WINS");
                     return 2;
                 }
+                //for the diagonal on the other side
+                if(arr[2][0] == arr[1][1] && arr[0][2] == arr[1][1]){
+                    return arr[1][1];
+                }
             }
             System.out.println("==========================================");
             return 0;
