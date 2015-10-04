@@ -6,6 +6,7 @@
 package tictactoe;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.GridLayout;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
@@ -21,6 +22,7 @@ public class TicTacToe {
      * @param args the command line arguments
      */
     static JFrame mainFrame = new JFrame("Tic Tac Toe");
+    static JPanel whoWon = new JPanel();
     
     public static int turn = 0;
     
