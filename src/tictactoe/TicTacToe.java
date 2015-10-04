@@ -56,6 +56,7 @@ public class TicTacToe {
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainFrame.setLayout(new GridLayout(3, 3));
         mainFrame.setBackground(Color.white);
+        mainFrame.validate();
     }
     
 }
