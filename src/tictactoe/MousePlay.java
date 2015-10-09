@@ -39,6 +39,8 @@ public class MousePlay {
                 func.GameOver(winner);
             }
             TicTacToe.mainFrame.validate();
+            int[][] arr = func.check();
+            func.comChose(arr);
         }
 
         @Override
@@ -153,6 +155,18 @@ public class MousePlay {
             t.setEditable(false);
             p.add(t);
             TicTacToe.mainFrame.add(p);
+        }
+        private static int comChose(int[][] arr){
+            if (closeWin() > 0) {
+                TicTacToe.Panel p = (TicTacToe.Panel) TicTacToe.mainFrame.getContentPane().getComponent(closeWin());
+            }
+            return 0;
+        }
+        private static int closeWin(){
+            if (true) {
+                
+            }
+            return 0;
         }
     }
 }
