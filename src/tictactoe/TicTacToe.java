@@ -48,7 +48,6 @@ public class TicTacToe {
     }
     
     public static void main(String[] args) {
-        // TODO code application logic here
         display_designs();
         mainFrame.setSize(500, 500);
         mainFrame.setVisible(true);

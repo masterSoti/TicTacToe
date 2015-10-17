@@ -9,8 +9,10 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.Random;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.table.TableCellEditor;
 
 /**
  *
@@ -35,7 +37,7 @@ public class MousePlay {
                 }
             }
             int winner = func.win(func.check());
-            if(winner > 0){
+            if(winner > 0 || TicTacToe.turn == 9){
                 func.GameOver(winner);
             }
             TicTacToe.mainFrame.validate();
@@ -81,7 +83,7 @@ public class MousePlay {
             int[][] z = new int[3][3];
             for(int i = 0; i < 3; i++){
                 for(int x = 0; x < 3; x++){
-                    JPanel s = (JPanel) TicTacToe.mainFrame.getContentPane().getComponent(counter);
+                    TicTacToe.Panel s = (TicTacToe.Panel) TicTacToe.mainFrame.getContentPane().getComponent(counter);
                     if(s.getBackground() == Color.red){
                         z[i][x] = 1;
                     }else if(s.getBackground() == Color.green){
@@ -104,9 +106,6 @@ public class MousePlay {
                 int p1_counter_horizontal = 0;
                 int p2_counter_horizontal = 0;
                 for(int x = 0; x < 3; x++){
-                    int x_cord = i + 1;
-                    int y_cord = x + 1;
-                    System.out.print("(" + x_cord + ", " + y_cord + "): " +arr[i][x] + "\t");
                     if(arr[i][x] == 1){
                         p1_counter_horizontal++;
                     }else if(arr[i][x] == 2){
@@ -138,7 +137,6 @@ public class MousePlay {
                     return arr[1][1];
                 }
             }
-            System.out.println("==========================================");
             return 0;
         }
         private static void GameOver(int winner){
@@ -150,21 +148,70 @@ public class MousePlay {
                 t.setText("Player One Won!!!!!");
             }else if(winner == 2){
                 t.setText("Player Two Won!!!!!");
+            }else{
+                t.setText("This Game was a tie!!!");
             }
             t.setFont(new Font("Engravers MT", Font.BOLD, 23));
             t.setEditable(false);
             p.add(t);
             TicTacToe.mainFrame.add(p);
         }
-        private static int comChose(int[][] arr){
-            if (closeWin() > 0) {
-                TicTacToe.Panel p = (TicTacToe.Panel) TicTacToe.mainFrame.getContentPane().getComponent(closeWin());
+        //computer decides to play on this one
+        private static void comChose(int[][] arr){
+            /*if (closeWin() > 0) {
+                JPanel p = (JPanel) TicTacToe.mainFrame.getContentPane().getComponent(closeWin());
+                p.setBackground(Color.green);
+                TicTacToe.turn++;
             }
-            return 0;
+            */
+            TicTacToe.Panel p = null;
+            if(TicTacToe.turn == 1){
+                if(arr[1][1] == 0){
+                    p = (TicTacToe.Panel) TicTacToe.mainFrame.getContentPane().getComponent(4);
+                    p.setBackground(Color.green);
+                    p.color = p.getBackground();
+                    TicTacToe.turn++;
+                }else {
+                    //pick the corners
+                    Random r = new Random();
+                    int rand = r.nextInt(4) + 1;
+                    switch (rand){
+                        case 1:
+                            p = (TicTacToe.Panel) TicTacToe.mainFrame.getContentPane().getComponent(0);
+                            break;
+                        case 2:
+                            p = (TicTacToe.Panel) TicTacToe.mainFrame.getContentPane().getComponent(2);
+                            break;
+                        case 3:
+                            p = (TicTacToe.Panel) TicTacToe.mainFrame.getContentPane().getComponent(6);
+                            break;
+                        case 4:
+                            p = (TicTacToe.Panel) TicTacToe.mainFrame.getContentPane().getComponent(8);
+                            break;
+                        default:
+                            System.out.println("I am sorry but this program seems to have crashed!!!!");
+                            p = (TicTacToe.Panel) TicTacToe.mainFrame.getContentPane().getComponent(5);
+                    }
+                    p.setBackground(Color.green);
+                    p.color = p.getBackground();
+                    TicTacToe.turn++;
+                }
+            }else {
+                if (closeWin() == 0){
+                }
+            }
         }
+        //to help the computer play, this will tell the computer which way the opp is about to win
         private static int closeWin(){
-            if (true) {
-                
+            int counter = 0;
+            for (int i = 0; i < 3; i++) {
+                for (int z = 0; z < 3; z++) {
+                    TicTacToe.Panel p = (TicTacToe.Panel) TicTacToe.mainFrame.getContentPane().getComponent(counter);
+                    counter++;
+                    if(z%2 == 0){
+
+                    }
+                }
             }
             return 0;
         }
