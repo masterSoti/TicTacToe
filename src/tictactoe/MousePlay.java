@@ -12,7 +12,6 @@ import java.awt.event.MouseListener;
 import java.util.Random;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.table.TableCellEditor;
 
 /**
  *
