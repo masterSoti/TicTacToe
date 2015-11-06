@@ -143,12 +143,16 @@ public class MousePlay {
             TicTacToe.mainFrame.getContentPane().repaint();
             JPanel p = TicTacToe.whoWon;
             JTextField t = new JTextField();
-            if(winner == 1){
-                t.setText("Player One Won!!!!!");
-            }else if(winner == 2){
-                t.setText("Player Two Won!!!!!");
-            }else{
-                t.setText("This Game was a tie!!!");
+            switch (winner) {
+                case 1:
+                    t.setText("Player One Won!!!!!");
+                    break;
+                case 2:
+                    t.setText("Player Two Won!!!!!");
+                    break;
+                default:
+                    t.setText("This Game was a tie!!!");
+                    break;
             }
             t.setFont(new Font("Engravers MT", Font.BOLD, 23));
             t.setEditable(false);
@@ -163,7 +167,7 @@ public class MousePlay {
                 TicTacToe.turn++;
             }
             */
-            TicTacToe.Panel p = null;
+            TicTacToe.Panel p;
             if(TicTacToe.turn == 1){
                 if(arr[1][1] == 0){
                     p = (TicTacToe.Panel) TicTacToe.mainFrame.getContentPane().getComponent(4);
@@ -208,7 +212,6 @@ public class MousePlay {
                     TicTacToe.Panel p = (TicTacToe.Panel) TicTacToe.mainFrame.getContentPane().getComponent(counter);
                     counter++;
                     if(z%2 == 0){
-
                     }
                 }
             }

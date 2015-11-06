@@ -36,15 +36,10 @@ public class TicTacToe {
     }
     
     public static void display_designs(){
-        Panel panel1 = new Panel();
-        Panel panel2 = new Panel();
-        Panel panel3 = new Panel();
-        Panel panel4 = new Panel();
-        Panel panel5 = new Panel();
-        Panel panel6 = new Panel();
-        Panel panel7 = new Panel();
-        Panel panel8 = new Panel();
-        Panel panel9 = new Panel();
+        Panel[] panel = new Panel[9];
+        for(int i = 0; i<panel.length; i++){
+            panel[i] = new Panel();
+        }
     }
     
     public static void main(String[] args) {
