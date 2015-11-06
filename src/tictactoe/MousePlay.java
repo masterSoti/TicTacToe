@@ -212,6 +212,7 @@ public class MousePlay {
                     TicTacToe.Panel p = (TicTacToe.Panel) TicTacToe.mainFrame.getContentPane().getComponent(counter);
                     counter++;
                     if(z%2 == 0){
+                        
                     }
                 }
             }
