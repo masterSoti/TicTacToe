@@ -123,7 +123,7 @@ public class MousePlay {
                         }
                     }
                 }
-                System.out.println();
+		//this so for the last diagonals
                 if(p1_counter_horizontal == 3 || p1_counter_vertical == 3 || p1_left_diag == 3){
                     System.out.println("RED WINS");
                     return 1;
@@ -212,7 +212,6 @@ public class MousePlay {
                     TicTacToe.Panel p = (TicTacToe.Panel) TicTacToe.mainFrame.getContentPane().getComponent(counter);
                     counter++;
                     if(z%2 == 0){
-
                     }
                 }
             }

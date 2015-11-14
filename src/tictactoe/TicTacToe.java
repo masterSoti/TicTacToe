@@ -51,5 +51,4 @@ public class TicTacToe {
         mainFrame.setBackground(Color.white);
         mainFrame.validate();
     }
-    
 }
